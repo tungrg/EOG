@@ -1,0 +1,46 @@
+﻿using UnityEngine;
+using System.Collections.Generic;
+
+
+public enum BattleType { Map, Dungeon }
+[CreateAssetMenu(fileName = "TeamData", menuName = "Data/TeamData")]
+public class TeamData : ScriptableObject
+{
+    public List<CombatantData> SelectedCombatants = new List<CombatantData>();
+    public List<EnemyData> SelectedEnemies = new List<EnemyData>();
+    public List<CombatantData>[] SavedTeams = new List<CombatantData>[3];
+    public BattleType CurrentBattleType;
+
+    public ElementType CurrentElement; // Lưu nguyên tố của trận đấu (Wind, Ash, Ice, Tide)
+    public int CurrentLevel;
+
+    void OnEnable()
+    {
+        for (int i = 0; i < SavedTeams.Length; i++)
+        {
+            SavedTeams[i] = new List<CombatantData>();
+        }
+    }
+
+    public bool IsTeamFull()
+    {
+        return SelectedCombatants.Count >= 4;
+    }
+
+    public void SetCharacter(int index, CombatantData character)
+    {
+        if (index >= 0 && index < SelectedCombatants.Count)
+        {
+            SelectedCombatants[index] = character;
+        }
+        else if (index >= 0 && !IsTeamFull())
+        {
+            SelectedCombatants.Add(character);
+        }
+    }
+
+    public void ClearTeam()
+    {
+        SelectedCombatants.Clear();
+    }
+}

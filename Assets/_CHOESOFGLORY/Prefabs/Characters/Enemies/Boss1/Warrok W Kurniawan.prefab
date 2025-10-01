@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1209426791583404034
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 191.82521
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.285027
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 199.08131
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      propertyPath: m_Name
+      value: Warrok W Kurniawan
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9010099235102499533}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8315784122901723718}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9055309362512754001}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1491682013589007865}
+  m_SourcePrefab: {fileID: 100100000, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+--- !u!1 &2020381837689777491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c97a3e4120f1c9e47bbc119ff17c4217, type: 3}
+  m_PrefabInstance: {fileID: 1209426791583404034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &9010099235102499533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020381837689777491}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.3609104, z: 1}
+  m_Center: {x: 0, y: 1.1317968, z: 0}
+--- !u!114 &8315784122901723718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020381837689777491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f002e41045cec674dbef46b43a7d9dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: ca9516a3e491da74288c8d3c08e99abb, type: 2}
+  animator: {fileID: 1491682013589007865}
+--- !u!114 &9055309362512754001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020381837689777491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505b522566fa1b04999bf223fd57591b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTeamData: {fileID: 11400000, guid: 6e7983ff7fa553046a29be56a574ec63, type: 2}
+  detectionRange: 10
+  tapInteractionRange: 10
+  highlightEffect: {fileID: 0}
+  vfxOffset: {x: 0, y: 1.5, z: 0}
+  teamInfoPanel: {fileID: 0}
+  enemyInfoEntryPrefab: {fileID: 3681748670939635654, guid: 15d58e3982b342643ac9a92e5d6831fa, type: 3}
+  attackButton: {fileID: 0}
+  closeButton: {fileID: 0}
+  enemyInfoNameHPText: {fileID: 0}
+  enemyInfoAvatarImage: {fileID: 0}
+--- !u!95 &1491682013589007865
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020381837689777491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b4c69f54c483c364099c2b7ce507acee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

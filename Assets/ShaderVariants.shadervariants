@@ -1,0 +1,419 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ShaderVariants
+  m_Shaders:
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_ALPHACLIP
+        passType: 0
+  - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 103, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: _SUNDISK_SIMPLE
+        passType: 0
+  - first: {fileID: 201, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10490, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: INSTANCING_ON
+        passType: 13
+  - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9004, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9007, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9101, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9103, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 18002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 19011, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 5a711a01011934ebcb58ef5ad52159d6, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _OUTPUT_DEPTH
+        passType: 0
+  - first: {fileID: 4800000, guid: 65df88701913c224d95fc554db28381a, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: e7857e9d0c934dc4f83f270f8447b006, type: 3}
+    second:
+      variants:
+      - keywords: _BLOOM_HQ _TONEMAP_ACES _USE_FAST_SRGB_LINEAR_CONVERSION
+        passType: 0
+      - keywords: _BLOOM_HQ _TONEMAP_NEUTRAL _USE_FAST_SRGB_LINEAR_CONVERSION
+        passType: 0
+  - first: {fileID: 4800000, guid: 5f1864addb451f54bae8c86d230f736e, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _BLOOM_HQ
+        passType: 0
+  - first: {fileID: 4800000, guid: 0e9d5a909a1f7e84882a534d0d11e49f, type: 3}
+    second:
+      variants:
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _LIGHT_LAYERS
+        passType: 13
+  - first: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 93446b5c5339d4f00b85c159e1159b7c, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: DIRLIGHTMAP_COMBINED EVALUATE_SH_VERTEX FOG_EXP LIGHTMAP_ON _DETAIL_MULX2
+          _LIGHT_LAYERS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED EVALUATE_SH_VERTEX FOG_EXP LIGHTMAP_ON _DETAIL_MULX2
+          _LIGHT_LAYERS _NORMALMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _DETAIL_MULX2 _LIGHT_LAYERS _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _EMISSION _LIGHT_LAYERS _NORMALMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _LIGHT_LAYERS
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _LIGHT_LAYERS _NORMALMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _LIGHT_LAYERS _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _EMISSION _LIGHT_LAYERS _NORMALMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _LIGHT_LAYERS
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _LIGHT_LAYERS _NORMALMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _LIGHT_LAYERS _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+  - first: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+    second:
+      variants:
+      - keywords: _SURFACE_TYPE_TRANSPARENT
+        passType: 0
+  - first: {fileID: 4800000, guid: 69c1f799e772cb6438f56c23efccb782, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP INSTANCING_ON _LIGHT_LAYERS _NORMALMAP
+          _TERRAIN_INSTANCED_PERPIXEL_NORMAL
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 1a29b4d27eb8b04479ef89c00dea533d, type: 3}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON _ALPHATEST_ON _CFXR_DITHERED_SHADOWS_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON _ALPHATEST_ON _CFXR_UV_DISTORTION
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON _CFXR_DISSOLVE
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON _CFXR_DISSOLVE _CFXR_DITHERED_SHADOWS_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON _CFXR_DISSOLVE _CFXR_UV_DISTORTION
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON _CFXR_DITHERED_SHADOWS_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHAPREMULTIPLY_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_ADDITIVE
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_ADDITIVE _CFXR_DISSOLVE
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_DITHERED_SHADOWS_ON
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: FOG_EXP
+        passType: 13
+      - keywords: FOG_EXP _ALPHABLEND_ON
+        passType: 13
+      - keywords: _ALPHABLEND_ON
+        passType: 13
+      - keywords: _ALPHABLEND_ON _ALPHATEST_ON _CFXR_EDGE_FADING _CFXR_UV_DISTORTION
+          _FADING_ON
+        passType: 13
+      - keywords: _ALPHABLEND_ON _ALPHATEST_ON _CFXR_LIGHTING_ALL _CFXR_LIGHTING_BACK
+          _FADING_ON _NORMALMAP
+        passType: 13
+      - keywords: _ALPHABLEND_ON _CFXR_DISSOLVE
+        passType: 13
+      - keywords: _ALPHABLEND_ON _CFXR_DISSOLVE _CFXR_SECONDCOLOR_LERP _FADING_ON
+        passType: 13
+      - keywords: _ALPHABLEND_ON _CFXR_DISSOLVE _CFXR_UV_DISTORTION _FADING_ON
+        passType: 13
+      - keywords: _ALPHABLEND_ON _CFXR_DISSOLVE _FADING_ON
+        passType: 13
+      - keywords: _ALPHABLEND_ON _CFXR_EDGE_FADING _FADING_ON
+        passType: 13
+      - keywords: _ALPHABLEND_ON _CFXR_SECONDCOLOR_LERP _FADING_ON
+        passType: 13
+      - keywords: _ALPHABLEND_ON _FADING_ON
+        passType: 13
+      - keywords: _ALPHAPREMULTIPLY_ON _FADING_ON
+        passType: 13
+      - keywords: _CFXR_ADDITIVE _CFXR_DISSOLVE
+        passType: 13
+      - keywords: _CFXR_ADDITIVE _CFXR_DISSOLVE _FADING_ON
+        passType: 13
+      - keywords: _CFXR_ADDITIVE _FADING_ON
+        passType: 13
+      - keywords: _CFXR_EDGE_FADING _FADING_ON
+        passType: 13
+      - keywords: _CFXR_LIGHTING_ALL _CFXR_LIGHTING_BACK _FADING_ON _NORMALMAP
+        passType: 13
+      - keywords: _CFXR_SECONDCOLOR_LERP _FADING_ON
+        passType: 13
+      - keywords: _FADING_ON
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 3230f6c5d09dd114c82b2287fcc7e15b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _ALPHATEST_ON _COLOR_OVERLAY_UV
+        passType: 8
+      - keywords: DIRLIGHTMAP_COMBINED EVALUATE_SH_VERTEX FOG_EXP LIGHTMAP_ON _ALPHATEST_ON
+          _COLOR_OVERLAY_UV _LIGHT_LAYERS _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _ALPHATEST_ON _COLOR_OVERLAY_UV _LIGHT_LAYERS
+          _SPECULAR_SETUP
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: ef2aa9333fbc23b40ae6289389ebd8fb, type: 3}
+    second:
+      variants:
+      - keywords: _BLEND_NORMALS _COVERAGE_OVERLAY_NORMAL_VECTOR
+        passType: 8
+      - keywords: _BLEND_NORMALS _COVERAGE_OVERLAY_NORMAL_VECTOR _ENABLE_COVERAGE
+        passType: 8
+      - keywords: _BLEND_NORMALS _COVERAGE_OVERLAY_VERTEX_POSITION
+        passType: 8
+      - keywords: DIRLIGHTMAP_COMBINED EVALUATE_SH_VERTEX FOG_EXP LIGHTMAP_ON _BLEND_NORMALS
+          _COVERAGE_OVERLAY_NORMAL_VECTOR _LIGHT_LAYERS
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED EVALUATE_SH_VERTEX FOG_EXP LIGHTMAP_ON _BLEND_NORMALS
+          _COVERAGE_OVERLAY_VERTEX_POSITION _LIGHT_LAYERS
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _BLEND_NORMALS _COVERAGE_OVERLAY_NORMAL_VECTOR
+          _ENABLE_COVERAGE _LIGHT_LAYERS
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _BLEND_NORMALS _COVERAGE_OVERLAY_NORMAL_VECTOR
+          _LIGHT_LAYERS
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _BLEND_NORMALS _COVERAGE_OVERLAY_VERTEX_POSITION
+          _LIGHT_LAYERS
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 67dfcda17071f4a41be79c4049965e67, type: 3}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_DITHERED_SHADOWS_ON _FADING_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_GLOW_POW_P4 _FADING_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_GLOW_POW_P8 _FADING_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _FADING_ON
+        passType: 8
+      - keywords: FOG_EXP
+        passType: 13
+      - keywords: _CFXR_GLOW_POW_P4 _FADING_ON
+        passType: 13
+      - keywords: _CFXR_GLOW_POW_P8 _FADING_ON
+        passType: 13
+      - keywords: _FADING_ON
+        passType: 13
+  - first: {fileID: 4800000, guid: 30bc8fd703be46640bd61c9fef44f54f, type: 3}
+    second:
+      variants:
+      - keywords: FOG_EXP _MASK_SELECTS_GRADETION
+        passType: 0
+      - keywords: FOG_EXP _MASK_SELECTS_SPHERE
+        passType: 0
+      - keywords: _MASK_SELECTS_GRADETION
+        passType: 0
+      - keywords: _MASK_SELECTS_SPHERE
+        passType: 0
+  - first: {fileID: -6465566751694194690, guid: a134b18c4ae94014cbb359f02efcc178, type: 3}
+    second:
+      variants:
+      - keywords: FOG_EXP
+        passType: 0
+      - keywords: _SURFACE_TYPE_TRANSPARENT
+        passType: 0
+      - keywords: 
+        passType: 8
+  - first: {fileID: -6465566751694194690, guid: 1581eccce46ba384596a1dce7936ab19, type: 3}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_DISSOLVE _CFXR_WORLD_SPACE_RING
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_RADIAL_UV
+        passType: 8
+      - keywords: SHADOWS_DEPTH _CFXR_WORLD_SPACE_RING
+        passType: 8
+      - keywords: FOG_EXP
+        passType: 13
+      - keywords: _CFXR_DISSOLVE _CFXR_WORLD_SPACE_RING
+        passType: 13
+      - keywords: _CFXR_RADIAL_UV _FADING_ON
+        passType: 13
+      - keywords: _CFXR_WORLD_SPACE_RING
+        passType: 13
+      - keywords: _FADING_ON
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 304630dc6079b47419e5333f284382fd, type: 3}
+    second:
+      variants:
+      - keywords: FOG_EXP
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 05882a66f4f7f714f9d243cc8636d682, type: 3}
+    second:
+      variants:
+      - keywords: FOG_EXP
+        passType: 0
+      - keywords: _SURFACE_TYPE_TRANSPARENT
+        passType: 0
+      - keywords: 
+        passType: 8
+  - first: {fileID: -6465566751694194690, guid: 7fa4e42edf1dd924dac45c3fd224b5e3, type: 3}
+    second:
+      variants:
+      - keywords: EVALUATE_SH_VERTEX FOG_EXP _LIGHT_LAYERS
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: c3b6dd7519323cc4bb41c71f8be5bfa0, type: 3}
+    second:
+      variants:
+      - keywords: _ALPHA_USEDISSOLVE _BLENDBETWEENMASK_MULTIPLY _SURFACE_TYPE_TRANSPARENT
+        passType: 0
+      - keywords: _ALPHA_USEDISSOLVE _BLENDBETWEENMASK_MULTIPLY
+        passType: 8
+  - first: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 21322c8b137c66e49b86085d3c8161f6, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: FOG_EXP INSTANCING_ON _LIGHT_LAYERS _TERRAIN_INSTANCED_PERPIXEL_NORMAL
+        passType: 13
+  - first: {fileID: 4800000, guid: 8fbe92a9edfe6074e841d6dd1509bc59, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 0a7e590f3cf1d4ee8a8fab5b6eff09ef, type: 3}
+    second:
+      variants:
+      - keywords: FOG_EXP INSTANCING_ON _LIGHT_LAYERS _NORMALMAP _TERRAIN_INSTANCED_PERPIXEL_NORMAL
+        passType: 13
+  - first: {fileID: 4800000, guid: b28130f36ca99cc4e8dfa30ab1dfdae3, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
