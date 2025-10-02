@@ -8,6 +8,10 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler,
     public Image joystickHandle; 
     public Button sprintButton;
 
+    [Header("Sprint Button Colors")]
+    public Color normalColor = Color.white;
+    public Color sprintActiveColor = Color.green;
+
     private Vector2 inputVector;
     private Vector2 joystickStartPos;
     private float joystickRadius;
@@ -20,9 +24,17 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler,
         joystickRadius = joystickBg.GetComponent<RectTransform>().sizeDelta.x * 0.5f;
         joystickStartPos = joystickHandle.GetComponent<RectTransform>().anchoredPosition;
 
-        // Gắn sự kiện cho nút
-
-        sprintButton.onClick.AddListener(() => IsSprintPressed = !IsSprintPressed); // Toggle sprint
+        // Set initial button color
+        if (sprintButton != null)
+        {
+            UpdateSprintButtonColor();
+            
+            // Gắn sự kiện cho nút
+            sprintButton.onClick.AddListener(() => {
+                IsSprintPressed = !IsSprintPressed;
+                UpdateSprintButtonColor();
+            });
+        }
     }
 
     void Update()
@@ -59,5 +71,42 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler,
     {
         inputVector = Vector2.zero;
         joystickHandle.GetComponent<RectTransform>().anchoredPosition = joystickStartPos;
+    }
+
+    private void UpdateSprintButtonColor()
+    {
+        if (sprintButton != null)
+        {
+            // Find all Image components in children
+            Image[] images = sprintButton.GetComponentsInChildren<Image>();
+            
+            // Look for the child Image (not the button's own Image if it has one)
+            Image childImage = null;
+            foreach (Image img in images)
+            {
+                if (img.transform != sprintButton.transform)
+                {
+                    childImage = img;
+                    break;
+                }
+            }
+            
+            if (childImage != null)
+            {
+                childImage.color = IsSprintPressed ? sprintActiveColor : normalColor;
+            }
+            else
+            {
+                // If no child Image found, use the first Image found (could be the button itself)
+                if (images.Length > 0)
+                {
+                    images[0].color = IsSprintPressed ? sprintActiveColor : normalColor;
+                }
+                else
+                {
+                    DebugLogger.LogError("Sprint button doesn't have any Image component!");
+                }
+            }
+        }
     }
 }
