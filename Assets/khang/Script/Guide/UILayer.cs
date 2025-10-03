@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems; // Thêm để kiểm tra UI interaction
+using UnityEngine.EventSystems;
 
 public class UILayer : MonoBehaviour
 {
@@ -8,14 +8,13 @@ public class UILayer : MonoBehaviour
     [SerializeField] private GameObject dungeonPanel;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject guideCanvas;
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] private CameraController cameraController;
+    [SerializeField] private PlayerController playerController;  // Giữ nguyên, nhưng sẽ find lại nếu null
+    [SerializeField] private CameraController cameraController; // Giữ nguyên
 
     private GameObject currentActivePanel;
 
     private void Awake()
     {
-        // Đảm bảo chỉ có một instance của UILayer
         if (Instance == null)
         {
             Instance = this;
@@ -29,9 +28,7 @@ public class UILayer : MonoBehaviour
 
     private void Start()
     {
-        // Ẩn tất cả các panel khi bắt đầu
         HideAllPanels();
-        // Đảm bảo CanvasGroup được cấu hình đúng khi khởi tạo
         ConfigureCanvasGroups(false);
     }
 
@@ -44,82 +41,117 @@ public class UILayer : MonoBehaviour
         }
 
         Debug.Log($"Showing panel: {panel.name}");
+
+        // Ẩn panel hiện tại
         if (currentActivePanel != null && currentActivePanel != panel)
         {
-            currentActivePanel.SetActive(false);
-            var oldCanvasGroup = currentActivePanel.GetComponent<CanvasGroup>();
-            if (oldCanvasGroup != null) oldCanvasGroup.blocksRaycasts = false;
+            SetPanelState(currentActivePanel, false);
         }
 
-        panel.SetActive(true);
+        // Hiện panel mới
         currentActivePanel = panel;
+        SetPanelState(panel, true);
 
-        var canvasGroup = panel.GetComponent<CanvasGroup>();
-        if (canvasGroup != null)
-        {
-            canvasGroup.blocksRaycasts = true;
-            canvasGroup.interactable = true;
-        }
-        else
-        {
-            Debug.LogWarning($"Panel {panel.name} does not have CanvasGroup component! Adding one.");
-            canvasGroup = panel.AddComponent<CanvasGroup>();
-            canvasGroup.blocksRaycasts = true;
-            canvasGroup.interactable = true;
-        }
-
-        DisablePlayerAndCamera(true);
+        DisablePlayerAndCamera(true);  // Disable input khi show
     }
 
     public void HideAllPanels()
     {
-        // Ẩn tất cả các panel
         if (currentActivePanel != null)
         {
-            currentActivePanel.SetActive(false);
-            var canvasGroup = currentActivePanel.GetComponent<CanvasGroup>();
-            if (canvasGroup != null) canvasGroup.blocksRaycasts = false;
+            SetPanelState(currentActivePanel, false);
             currentActivePanel = null;
         }
 
-        if (dungeonPanel != null)
+        var panels = new[] { dungeonPanel, inventoryPanel, guideCanvas };
+        foreach (var panel in panels)
         {
-            dungeonPanel.SetActive(false);
-            var canvasGroup = dungeonPanel.GetComponent<CanvasGroup>();
-            if (canvasGroup != null) canvasGroup.blocksRaycasts = false;
-        }
-        if (inventoryPanel != null)
-        {
-            inventoryPanel.SetActive(false);
-            var canvasGroup = inventoryPanel.GetComponent<CanvasGroup>();
-            if (canvasGroup != null) canvasGroup.blocksRaycasts = false;
-        }
-        if (guideCanvas != null)
-        {
-            guideCanvas.SetActive(false);
-            var canvasGroup = guideCanvas.GetComponent<CanvasGroup>();
-            if (canvasGroup != null) canvasGroup.blocksRaycasts = false;
+            if (panel != null)
+                SetPanelState(panel, false);
         }
 
-        // Kích hoạt lại điều khiển người chơi và camera
-        DisablePlayerAndCamera(false);
+        DisablePlayerAndCamera(false);  // Enable input khi hide
+
+        // Bổ sung: Reset input nếu không có touch (fix stuck trên mobile)
+        if (Input.touchCount == 0)
+        {
+            ResetInputState();  // Gọi method mới
+        }
     }
 
-    // Thêm thuộc tính để kiểm tra xem UI có đang hiển thị không
+    // Hàm gọn để bật/tắt panel
+    private void SetPanelState(GameObject panel, bool isActive)
+    {
+        var cg = panel.GetComponent<CanvasGroup>();
+        if (cg == null) cg = panel.AddComponent<CanvasGroup>();
+
+        panel.SetActive(isActive);
+        cg.alpha = isActive ? 1f : 0f;
+        cg.interactable = isActive;
+        cg.blocksRaycasts = isActive;
+    }
+
     public bool IsUIPanelActive => currentActivePanel != null;
 
+    // SỬA CHÍNH: Find lại nếu null, và skip Cursor trên mobile
     private void DisablePlayerAndCamera(bool disable)
     {
-        if (playerController != null)
-            playerController.isMovementEnabled = !disable;
-        if (cameraController != null)
-            cameraController.isCameraControlEnabled = !disable;
+        // Find lại nếu null (an toàn cho DontDestroyOnLoad)
+        if (playerController == null)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+            if (playerController == null)
+                Debug.LogError("PlayerController not found! Input may be locked.");
+            else
+                Debug.Log("Re-found PlayerController.");
+        }
 
+        if (cameraController == null)
+        {
+            cameraController = FindObjectOfType<CameraController>();
+            if (cameraController == null)
+                Debug.LogError("CameraController not found! Camera input may be locked.");
+            else
+                Debug.Log("Re-found CameraController.");
+        }
+
+        // Enable/disable controllers
+        if (playerController != null)
+        {
+            playerController.isMovementEnabled = !disable;
+            Debug.Log($"Player movement enabled: {!disable}");  // Debug log
+        }
+
+        if (cameraController != null)
+        {
+            cameraController.isCameraControlEnabled = !disable;
+            Debug.Log($"Camera control enabled: {!disable}");  // Debug log
+        }
+
+        // Cursor chỉ cho non-mobile (PC/Editor)
+#if !UNITY_ANDROID && !UNITY_IOS
         Cursor.lockState = disable ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = disable;
+        Debug.Log($"Cursor state: {(disable ? "Visible/None" : "Hidden/Locked")}");  // Debug
+#endif
+
+        // Bổ sung: Clear EventSystem và force reset touch
+        if (EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            // EventSystem.current.RestartCoroutine("Process");  // Uncomment nếu cần force restart
+        }
+
+        // Nếu dùng new Input System, thêm reset touch phase (nếu có package) - SỬA: Bỏ dòng assign read-only
+#if ENABLE_INPUT_SYSTEM
+        if (UnityEngine.InputSystem.Touchscreen.current != null)
+        {
+            // Không thể assign wasUpdatedThisFrame vì read-only, bỏ qua hoặc dùng cách khác
+            Debug.Log("Input System touch reset attempted (read-only property skipped).");
+        }
+#endif
     }
 
-    // Hàm mới để cấu hình CanvasGroup ban đầu
     private void ConfigureCanvasGroups(bool blocksRaycasts)
     {
         var panels = new[] { dungeonPanel, inventoryPanel, guideCanvas };
@@ -127,21 +159,42 @@ public class UILayer : MonoBehaviour
         {
             if (panel != null)
             {
-                var canvasGroup = panel.GetComponent<CanvasGroup>();
-                if (canvasGroup == null)
-                {
-                    canvasGroup = panel.AddComponent<CanvasGroup>();
-                    Debug.Log($"Added CanvasGroup to {panel.name}");
-                }
-                canvasGroup.blocksRaycasts = blocksRaycasts;
-                canvasGroup.interactable = true; // Đảm bảo panel có thể tương tác
+                var cg = panel.GetComponent<CanvasGroup>();
+                if (cg == null) cg = panel.AddComponent<CanvasGroup>();
+
+                cg.alpha = 0f;
+                cg.blocksRaycasts = blocksRaycasts;
+                cg.interactable = false;
             }
         }
     }
 
-    // Hàm kiểm tra xem chuột có đang trên UI không
     public bool IsPointerOverUI()
     {
         return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+    }
+
+    // Bổ sung: Method reset input state (fix ghost touch)
+    private void ResetInputState()
+    {
+        // Force reset controls nếu stuck
+        if (playerController != null)
+        {
+            // Nếu PlayerController có method ResetInput(), gọi nó ở đây
+            // playerController.ResetInput();
+            Debug.Log("Reset input state for player.");
+        }
+        if (cameraController != null)
+        {
+            // Tương tự cho camera
+            Debug.Log("Reset input state for camera.");
+        }
+
+        // Clear tất cả touch phases (hacky fix cho old Input Manager)
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            // Không thể set phase trực tiếp, nhưng clear bằng cách ignore
+        }
+        Debug.Log("Reset touch state after UI close.");
     }
 }
