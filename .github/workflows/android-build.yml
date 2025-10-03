@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         targetPlatform:
-          - iOS # Build an iOS player.
+          - Android # Build an Android .apk standalone app.
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,7 +22,7 @@ jobs:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
-      - if: matrix.targetPlatform == 'iOS'
+      - if: matrix.targetPlatform == 'Android'
         uses: jlumbroso/free-disk-space@v1.3.1
       - uses: game-ci/unity-builder@v4.5.0
         env:
