@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.EventSystems;
+using NUnit.Framework.Constraints;
 
 public class InventoryUIManager : MonoBehaviour
 {
@@ -289,6 +290,15 @@ public class InventoryUIManager : MonoBehaviour
         UpdateInventoryUI();
         deleteButton.gameObject.SetActive(false);
         mergeButton.gameObject.SetActive(false);
+        GameObject InventoryLayout = GameObject.Find("InventoryUIManager/Canvas/InventoryLayout");
+        if (InventoryLayout == null)
+        {
+            DebugLogger.LogError("LayoutDungeon GameObject not found in the scene.");
+        }
+        else
+        {
+            InventoryLayout.SetActive(true);
+        }
     }
 
     public void UpdateInventoryUI()
@@ -324,6 +334,15 @@ public class InventoryUIManager : MonoBehaviour
         stoneImage.sprite = null;
         deleteButton.gameObject.SetActive(false);
         mergeButton.gameObject.SetActive(false);
+        GameObject InventoryLayout = GameObject.Find("InventoryUIManager/Canvas/InventoryLayout");
+        if (InventoryLayout == null)
+        {
+            DebugLogger.LogError("LayoutDungeon GameObject not found in the scene.");
+        }
+        else
+        {
+            InventoryLayout.SetActive(false);
+        }
     }
 
     private void SwitchInventory()
@@ -336,6 +355,15 @@ public class InventoryUIManager : MonoBehaviour
             {
                 Debug.Log("Switching to Equipment UI");
                 UILayer.Instance.ShowPanel(equipmentUI.gameObject);
+                GameObject InventoryLayout = GameObject.Find("InventoryUIManager/Canvas/InventoryLayout");
+                if (InventoryLayout == null)
+                {
+                    DebugLogger.LogError("LayoutDungeon GameObject not found in the scene.");
+                }
+                else
+                {
+                    InventoryLayout.SetActive(false);
+                }
                 equipmentUI.ShowPanel(); // Thêm dòng này để gọi ShowPanel
             }
             else

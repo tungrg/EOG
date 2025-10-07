@@ -107,6 +107,16 @@ public class DungeonUIManager : MonoBehaviour
             DebugLogger.LogError("No tabs found in DungeonData.");
             return;
         }
+        GameObject layoutDungeon = GameObject.Find("DungeonUIManager/Canvas/LayoutDungeon");
+        if (layoutDungeon == null)
+        {
+            DebugLogger.LogError("LayoutDungeon GameObject not found in the scene.");
+        }
+        else
+        {
+            layoutDungeon.SetActive(true);
+        }
+        
 
         UILayer.Instance.ShowPanel(dungeonPanel);
         ShowTabContent(dungeonData.Tabs[0]);
@@ -248,5 +258,14 @@ public class DungeonUIManager : MonoBehaviour
     {
         UILayer.Instance.HideAllPanels();
         prefabPanel.SetActive(false);
+        GameObject layoutDungeon = GameObject.Find("DungeonUIManager/Canvas/LayoutDungeon");
+        if (layoutDungeon == null)
+        {
+            DebugLogger.LogError("LayoutDungeon GameObject not found in the scene.");
+        }
+        else
+        {
+            layoutDungeon.SetActive(false);
+        }
     }
 }
