@@ -8,7 +8,7 @@ public class TutorialObjectDestroy : MonoBehaviour
     [Header("Setup")]
     [SerializeField] private GameObject overlayPanel1;    // Overlay đầu tiên
     [SerializeField] private Button tutorialButton;       // Nút tutorial đầu tiên
-    [SerializeField] private GameObject overlayPanel2;    // Overlay thứ 2
+    //[SerializeField] private GameObject overlayPanel2;    // Overlay thứ 2
     [SerializeField] private Button equipButton;          // Nút Equip
     [SerializeField] private List<GameObject> watchedObjects = new List<GameObject>(); // Danh sách object theo dõi
 
@@ -50,7 +50,7 @@ public class TutorialObjectDestroy : MonoBehaviour
 
         // --- Bước 2 ---
         overlayPanel1.SetActive(false);
-        overlayPanel2.SetActive(true);
+        //overlayPanel2.SetActive(true);
 
         foreach (var btn in allButtons) btn.interactable = false;
         equipButton.interactable = true;
@@ -60,7 +60,7 @@ public class TutorialObjectDestroy : MonoBehaviour
         yield return new WaitUntil(() => equipPressed);
 
         // --- Kết thúc ---
-        overlayPanel2.SetActive(false);
+        //overlayPanel2.SetActive(false);
         foreach (var btn in allButtons) btn.interactable = true;
 
         PlayerPrefs.SetInt("FirstTimeDestroyTutorial", 0);

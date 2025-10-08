@@ -180,6 +180,15 @@ public class EnemyTrigger : MonoBehaviour
         // Nếu có người lắng nghe, thông báo
         if (OnTeamInfoShown != null) OnTeamInfoShown.Invoke();
         teamInfoPanel.SetActive(true);
+        GameObject EnemyLayout = GameObject.Find("EnemyInfoCanvas").transform.Find("EnemyLayout")?.gameObject;
+        if (EnemyLayout == null)
+        {
+            DebugLogger.LogError("EnemyInfoCanvas/EnemyLayout GameObject not found in the scene.");
+        }
+        else
+        {
+            EnemyLayout.SetActive(true);
+        }
 
         EnemyData mainEnemy = enemyTeamData.Enemies[0];
         if (enemyInfoNameHPText != null)
@@ -234,6 +243,15 @@ public class EnemyTrigger : MonoBehaviour
 
         closeButton.gameObject.SetActive(false);
         closeButton.onClick.RemoveAllListeners();
+        GameObject EnemyLayout = GameObject.Find("EnemyInfoCanvas").transform.Find("EnemyLayout")?.gameObject;
+        if (EnemyLayout == null)
+        {
+            DebugLogger.LogError("EnemyInfoCanvas/EnemyLayout GameObject not found in the scene.");
+        }
+        else
+        {
+            EnemyLayout.SetActive(false);
+        }
 
         var playerController = GameObject.FindWithTag("Player")?.GetComponent<PlayerController>();
         if (playerController != null) playerController.enabled = true;

@@ -163,7 +163,17 @@ public class MapManager : MonoBehaviour
         if (enemyInfoPanel != null && enemyInfoText != null && enemyData != null)
         {
             enemyInfoPanel.SetActive(true);
+            DebugLogger.Log($"Showing enemy info: {enemyData.Name} with HP {enemyData.HP}/{enemyData.MaxHP}");
             enemyInfoText.text = $"{enemyData.Name}\n{enemyData.HP}/{enemyData.MaxHP}";
+            GameObject enemyLayout = GameObject.Find("EnemyInfoCanvas/EnemyLayout");
+            if (enemyLayout != null)
+            {
+                enemyLayout.SetActive(true);
+            }
+            else
+            {
+                DebugLogger.LogError("EnemyInfoCanvas/EnemyLayout GameObject not found.");
+            }
         }
         else
         {
@@ -176,6 +186,15 @@ public class MapManager : MonoBehaviour
         if (enemyInfoPanel != null)
         {
             enemyInfoPanel.SetActive(false);
+            GameObject enemyLayout = GameObject.Find("EnemyInfoCanvas/EnemyLayout");
+            if (enemyLayout != null)
+            {
+                enemyLayout.SetActive(false);
+            }
+            else
+            {
+                DebugLogger.LogError("EnemyInfoCanvas/EnemyLayout GameObject not found.");
+            }
         }
     }
 }
