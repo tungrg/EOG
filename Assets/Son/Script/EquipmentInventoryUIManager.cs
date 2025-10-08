@@ -39,6 +39,10 @@ public class EquipmentInventoryUIManager : MonoBehaviour
 
     private List<Image> slotImages = new();
     private List<TextMeshProUGUI> slotTexts = new();
+
+    // ✅ Danh sách sprite mặc định
+    private List<Sprite> defaultSlotSprites = new();
+
     private List<InventoryData.ItemEntry> equipmentEntries = new();
 
     private EquipmentData pendingEquip;
@@ -275,6 +279,7 @@ public class EquipmentInventoryUIManager : MonoBehaviour
         foreach (Transform child in slotsContainer) Destroy(child.gameObject);
         slotImages.Clear();
         slotTexts.Clear();
+        defaultSlotSprites.Clear(); // ✅ làm rỗng trước khi thêm
 
         int total = rows * columns;
 
@@ -291,6 +296,16 @@ public class EquipmentInventoryUIManager : MonoBehaviour
             var img = go.GetComponent<Image>();
             var txt = go.GetComponentInChildren<TextMeshProUGUI>();
             var btn = go.GetComponent<Button>();
+
+            // ✅ Giữ nguyên sprite mặc định gắn sẵn trong prefab
+            if (img != null)
+            {
+                defaultSlotSprites.Add(img.sprite); // Lưu sprite mặc định
+            }
+            else
+            {
+                defaultSlotSprites.Add(null);
+            }
 
             slotImages.Add(img);
             slotTexts.Add(txt);
@@ -369,10 +384,13 @@ public class EquipmentInventoryUIManager : MonoBehaviour
 
     private void RefreshUI()
     {
+        // ✅ Đặt lại hình mặc định thay vì None
         for (int i = 0; i < slotImages.Count; i++)
         {
-            if (slotImages[i] != null) slotImages[i].sprite = null;
-            if (slotTexts[i] != null) slotTexts[i].text = "";
+            if (slotImages[i] == null || slotTexts[i] == null) continue;
+
+            slotImages[i].sprite = defaultSlotSprites[i]; // trả về sprite mặc định
+            slotTexts[i].text = "";
         }
 
         if (inventoryData == null) return;
@@ -388,9 +406,10 @@ public class EquipmentInventoryUIManager : MonoBehaviour
             var eq = (EquipmentData)entry.Item;
 
             if (slotImages[i] != null) slotImages[i].sprite = eq.ItemSprite;
-            if (slotTexts[i] != null) slotTexts[i].text = $" x{entry.Quantity}";
+            if (slotTexts[i] != null) slotTexts[i].text = $"x{entry.Quantity}";
         }
     }
+
 
     private void OnSlotClicked(int index)
     {
