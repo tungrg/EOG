@@ -132,7 +132,7 @@ public class TutorialManager : MonoBehaviour
             var enemy = enemiesToTeach[i];
             if (enemy == null || !enemy.gameObject.activeInHierarchy) continue;
 
-            yield return StartCoroutine(WaitAndShowClickPanel(enemy));
+            //yield return StartCoroutine(WaitAndShowClickPanel(enemy));
             MarkEnemyComplete(i + 1); // i là 0-based
         }
 

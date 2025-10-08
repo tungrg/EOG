@@ -857,6 +857,7 @@ GameObject:
   - component: {fileID: 372405333}
   - component: {fileID: 372405332}
   - component: {fileID: 372405331}
+  - component: {fileID: 372405334}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -966,6 +967,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372405329}
   m_CullTransparentMesh: 1
+--- !u!114 &372405334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372405329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!224 &383831640 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4652258238135794639, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
@@ -1344,11 +1360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 909077240700601262, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 909077240700601262, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2161305086666997137, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_Pivot.x
@@ -1484,7 +1500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4138654406190009404, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_fontSize
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4138654406190009404, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_margin.y
@@ -1492,7 +1508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4138654406190009404, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_fontSizeBase
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4138654406190009404, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_VerticalAlignment
@@ -1664,11 +1680,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856182814641720366, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0006485
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7856182814641720366, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 180
+      value: 202
       objectReference: {fileID: 0}
     - target: {fileID: 8438029093088525076, guid: 2e2a650945b326048ad6091404eaf942, type: 3}
       propertyPath: stonesContainer
@@ -4334,6 +4350,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620074428916428907, guid: a92980ccc9326ee4386a9b07208bbc5c, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6338337058483763218, guid: a92980ccc9326ee4386a9b07208bbc5c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6338337058483763218, guid: a92980ccc9326ee4386a9b07208bbc5c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6338337058483763218, guid: a92980ccc9326ee4386a9b07208bbc5c, type: 3}
+      propertyPath: m_fontColor.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
