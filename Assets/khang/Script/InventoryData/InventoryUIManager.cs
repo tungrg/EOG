@@ -39,6 +39,8 @@ public class InventoryUIManager : MonoBehaviour
 
     private List<Image> slotImages = new();
     private List<TextMeshProUGUI> slotTexts = new();
+    private List<Sprite> defaultSlotSprites = new(); // ✅ thêm để lưu sprite mặc định
+
     private StoneData selectedStone;
     private int selectedSlotIndex = -1;
     private bool showingStoneInventory = true;
@@ -57,7 +59,6 @@ public class InventoryUIManager : MonoBehaviour
         deleteButton.gameObject.SetActive(false);
         mergeButton.gameObject.SetActive(false);
 
-        // Gán sự kiện cho các nút
         openInventoryButton.onClick.AddListener(ShowInventoryPanel);
         if (closeInventoryButton != null)
             closeInventoryButton.onClick.AddListener(HideInventoryPanel);
@@ -69,9 +70,9 @@ public class InventoryUIManager : MonoBehaviour
             });
         if (switchButton != null)
         {
-            Debug.Log("Assigning switchButton onClick event"); // Log để kiểm tra
-            switchButton.onClick.RemoveAllListeners(); // Xóa sự kiện cũ
-            switchButton.onClick.AddListener(SwitchInventory); // Gán sự kiện mới
+            Debug.Log("Assigning switchButton onClick event");
+            switchButton.onClick.RemoveAllListeners();
+            switchButton.onClick.AddListener(SwitchInventory);
         }
         else
         {
@@ -104,8 +105,8 @@ public class InventoryUIManager : MonoBehaviour
                        deleteButton != null &&
                        mergeButton != null &&
                        sortButton != null &&
-                       switchButton != null && // Kiểm tra switchButton
-                       equipmentUI != null; // Kiểm tra equipmentUI
+                       switchButton != null &&
+                       equipmentUI != null;
 
         if (!isValid)
         {
@@ -120,6 +121,7 @@ public class InventoryUIManager : MonoBehaviour
 
         slotImages.Clear();
         slotTexts.Clear();
+        defaultSlotSprites.Clear(); // ✅ đảm bảo danh sách rỗng trước khi thêm
 
         for (int i = 0; i < rows * columns; i++)
         {
@@ -128,11 +130,12 @@ public class InventoryUIManager : MonoBehaviour
             TextMeshProUGUI slotText = slotItem.GetComponentInChildren<TextMeshProUGUI>();
             Button slotButton = slotItem.GetComponent<Button>();
 
-            if (slotImage != null) slotImage.sprite = null;
+            if (slotImage != null) slotImage.sprite = slotImage.sprite; // giữ sprite hiện tại
             if (slotText != null) slotText.text = "";
 
             slotImages.Add(slotImage);
             slotTexts.Add(slotText);
+            defaultSlotSprites.Add(slotImage != null ? slotImage.sprite : null); // ✅ lưu sprite mặc định
 
             if (slotButton != null)
             {
@@ -285,7 +288,7 @@ public class InventoryUIManager : MonoBehaviour
 
     public void ShowInventoryPanel()
     {
-        Debug.Log("Showing Inventory Panel (Stone)"); // Log để theo dõi
+        Debug.Log("Showing Inventory Panel (Stone)");
         UILayer.Instance.ShowPanel(inventoryPanel);
         UpdateInventoryUI();
         deleteButton.gameObject.SetActive(false);
@@ -307,7 +310,8 @@ public class InventoryUIManager : MonoBehaviour
         {
             if (slotImages[i] == null || slotTexts[i] == null) continue;
 
-            slotImages[i].sprite = null;
+            // ✅ Giữ lại hình mặc định thay vì None
+            slotImages[i].sprite = defaultSlotSprites[i];
             slotTexts[i].text = "";
         }
 
@@ -327,7 +331,7 @@ public class InventoryUIManager : MonoBehaviour
 
     public void HideInventoryPanel()
     {
-        Debug.Log("Hiding Inventory Panel (Stone)"); // Log để theo dõi
+        Debug.Log("Hiding Inventory Panel (Stone)");
         UILayer.Instance.HideAllPanels();
         upgradePanel.SetActive(false);
         characterAvatarImage.sprite = null;
@@ -364,7 +368,7 @@ public class InventoryUIManager : MonoBehaviour
                 {
                     InventoryLayout.SetActive(false);
                 }
-                equipmentUI.ShowPanel(); // Thêm dòng này để gọi ShowPanel
+                equipmentUI.ShowPanel();
             }
             else
             {
