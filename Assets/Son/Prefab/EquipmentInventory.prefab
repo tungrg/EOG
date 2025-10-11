@@ -307,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.875, y: -3.2362976}
+  m_AnchoredPosition: {x: 3.875, y: -3.2363281}
   m_SizeDelta: {x: -222.6215, y: -266.9728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7385690831690517962
@@ -427,8 +427,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1876320311732236680}
   - {fileID: 824906737395326576}
+  - {fileID: 1876320311732236680}
   m_Father: {fileID: 8679354604121999031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -863,6 +863,8 @@ MonoBehaviour:
   equipSlotPrefab: {fileID: 7309563186702467968, guid: ca72be7f24a803b44b1b180c5d013dfa, type: 3}
   confirmEquipButton: {fileID: 6533704527393496843}
   closeEquipPanelButton: {fileID: 6009335820428907991}
+  equipStatsBackground: {fileID: 0}
+  equipStatsText: {fileID: 0}
   deleteButton: {fileID: 8049709392764416900}
 --- !u!1 &3856538475123575152
 GameObject:
@@ -1196,7 +1198,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5601416557268798161}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.81333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1363,16 +1365,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6314333244185757581}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8679354604121999031}
+  m_Father: {fileID: 4257330431742840557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -667, y: -375}
+  m_AnchoredPosition: {x: -513.14, y: -716}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8863014889934908520
@@ -1828,6 +1830,7 @@ RectTransform:
   - {fileID: 8847602437117501007}
   - {fileID: 7761008888455044560}
   - {fileID: 2251292843571859117}
+  - {fileID: 1388288229910007052}
   m_Father: {fileID: 3696570362984142558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1967,11 +1970,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3660066963984861919}
   - {fileID: 8192127253400892777}
   - {fileID: 3696570362984142558}
-  - {fileID: 1388288229910007052}
   - {fileID: 1783942570176714865}
+  - {fileID: 3660066963984861919}
   m_Father: {fileID: 6591664818330155490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
